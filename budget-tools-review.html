@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BudgetTech Pro - Premium Tools on a Budget</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a73e8;
+            --secondary: #34a853;
+            --accent: #fbbc04;
+            --dark: #202124;
+            --light: #f8f9fa;
+            --border: #e8eaed;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: #fff;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #5f6368;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #1765cc;
+        }
+
+        /* Value Props */
+        .value-props {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .prop {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 8px;
+            background: var(--light);
+        }
+
+        .prop-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .prop h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .prop p {
+            color: #5f6368;
+            font-size: 0.95rem;
+        }
+
+        /* Featured Reviews */
+        .featured {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .featured h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .review-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+
+        .card-header {
+            background: var(--light);
+            padding: 1.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .price-comparison {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .price-item {
+            flex: 1;
+        }
+
+        .price-label {
+            color: #5f6368;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .premium-price {
+            text-decoration: line-through;
+            color: #9aa0a6;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .rating {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .card-body p {
+            color: #5f6368;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .pros {
+            margin-bottom: 1rem;
+        }
+
+        .pros-title {
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pros-list {
+            list-style: none;
+            font-size: 0.9rem;
+            color: #5f6368;
+        }
+
+        .pros-list li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.3rem;
+        }
+
+        .pros-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .card-footer {
+            padding: 1.5rem;
+            background: var(--light);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-small {
+            flex: 1;
+            padding: 0.7rem 1rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #1765cc;
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about p {
+            color: #5f6368;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: var(--primary);
+            color: #fff;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 4rem 0 0 0;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 0.8rem 2rem;
+            background: var(--accent);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #f9ab00;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .price-comparison {
+                flex-direction: column;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">💰 BudgetTech Pro</a>
+            <ul class="nav-links">
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#newsletter">Subscribe</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Premium Tools on a Budget</h1>
+        <p class="tagline">Find the best affordable alternatives to expensive software</p>
+        <p>Discover powerful tools that don't break the bank. Honest reviews, real comparisons, and affiliate links to help you save money while staying productive.</p>
+        <a href="#reviews" class="cta-button">Explore Reviews</a>
+    </section>
+
+    <!-- Value Props -->
+    <section class="value-props">
+        <div class="prop">
+            <div class="prop-icon">💪</div>
+            <h3>Powerful Features</h3>
+            <p>Premium functionality at fraction of the cost</p>
+        </div>
+        <div class="prop">
+            <div class="prop-icon">✅</div>
+            <h3>Honest Reviews</h3>
+            <p>Real testing, no fluff, genuine recommendations</p>
+        </div>
+        <div class="prop">
+            <div class="prop-icon">🎯</div>
+            <h3>Student Friendly</h3>
+            <p>Verified discounts for students & freelancers</p>
+        </div>
+    </section>
+
+    <!-- Featured Reviews -->
+    <section class="featured" id="reviews">
+        <h2>Featured Reviews</h2>
+        <div class="reviews-grid">
+            <!-- Review 1 -->
+            <div class="review-card">
+                <div class="card-header">
+                    <h3 class="card-title">Figma vs Canva</h3>
+                    <div class="price-comparison">
+                        <div class="price-item">
+                            <div class="price-label">Premium</div>
+                            <div class="price"><span class="premium-price">$12/mo</span></div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Budget Pick</div>
+                            <div class="price">Free</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="rating">⭐ 4.8/5</div>
+                    <p>Canva is perfect for quick designs, social posts, and presentations without the steep learning curve of Figma.</p>
+                    <div class="pros">
+                        <div class="pros-title">Why We Love It</div>
+                        <ul class="pros-list">
+                            <li>Drag-and-drop simplicity</li>
+                            <li>1000s of templates</li>
+                            <li>Affordable premium ($120/yr)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-small btn-primary">View Full Review</a>
+                    <a href="#" class="btn-small btn-secondary">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="card-header">
+                    <h3 class="card-title">Adobe vs Affinity Photo</h3>
+                    <div class="price-comparison">
+                        <div class="price-item">
+                            <div class="price-label">Premium</div>
+                            <div class="price"><span class="premium-price">$54.99/mo</span></div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Budget Pick</div>
+                            <div class="price">₹1,199 (One-time)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="rating">⭐ 4.7/5</div>
+                    <p>Professional photo editing without the subscription trap. Affinity Photo delivers Adobe-level features with a one-time purchase.</p>
+                    <div class="pros">
+                        <div class="pros-title">Why We Love It</div>
+                        <ul class="pros-list">
+                            <li>One-time payment (no subscription)</li>
+                            <li>Professional-grade tools</li>
+                            <li>Works offline</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-small btn-primary">View Full Review</a>
+                    <a href="#" class="btn-small btn-secondary">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-card">
+                <div class="card-header">
+                    <h3 class="card-title">Notion vs Obsidian</h3>
+                    <div class="price-comparison">
+                        <div class="price-item">
+                            <div class="price-label">Premium</div>
+                            <div class="price"><span class="premium-price">₹800/mo</span></div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Budget Pick</div>
+                            <div class="price">Free</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="rating">⭐ 4.9/5</div>
+                    <p>Obsidian is the ultimate free note-taking and knowledge management app. Perfect for students, developers, and writers.</p>
+                    <div class="pros">
+                        <div class="pros-title">Why We Love It</div>
+                        <ul class="pros-list">
+                            <li>100% free forever</li>
+                            <li>Your data stays private</li>
+                            <li>Powerful linking system</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-small btn-primary">View Full Review</a>
+                    <a href="#" class="btn-small btn-secondary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>Why BudgetTech Pro?</h2>
+            <p>I'm a freelance designer and developer who's always looking for the best tools without spending a fortune. Most premium software is amazing, but they're also expensive—especially for students and freelancers just starting out.</p>
+            <p>That's why I started BudgetTech Pro. I test tools so you don't have to. Every review is honest, every comparison is fair, and every recommendation comes from real experience.</p>
+            <p>Whether you're a designer, developer, creator, or student—there's a powerful alternative out there. Let's find it together.</p>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="newsletter">
+        <div class="newsletter-content">
+            <h2>Get New Reviews Weekly</h2>
+            <p>Subscribe to get honest reviews of budget-friendly tools delivered to your inbox</p>
+            <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 BudgetTech Pro | Affiliate Links Help Us Provide Free Reviews | <a href="#">Privacy</a> | <a href="#">Disclaimer</a></p>
+    </footer>
+
+    <script>
+        function handleSubscribe(e) {
+            e.preventDefault();
+            alert('Thanks for subscribing! 🎉\n\nYou\'ll receive weekly reviews soon.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
